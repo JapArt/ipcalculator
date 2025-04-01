@@ -51,7 +51,7 @@
         <h2>Instructions on How to Use:</h2>
         <ol>
           <li>Input the Root IP Address: Enter the root IP address in the first field. For example, <code>177.0.0.0</code>.</li>
-          <li>Input the Subnet Mask: Enter the subnet mask in the second field. This could be a number between 0 and 32, representing the number of bits used for the network portion of the address. For instance, if the subnet mask is 8, you're using 8 bits for the network and 24 bits for the host.</li>
+          <li>Input the Subnet Mask: Enter the subnet mask in the second field. This could be a number between 0 and 32, representing the number of bits used for the network portion of the address.</li>
           <li>Enter the Host ID: Input the host ID in the last field. This represents the unique identifier of the specific device within that subnet.</li>
           <li>Click on Calculate</li>
         </ol>
@@ -74,9 +74,10 @@
 
       // Perform the IP address calculation here (using the JavaScript function provided earlier)
       const result = calculateIPFunction(networkAddress, subnetMask, hostID);
+      const ipClass = getIPClass(networkAddress);
 
       // Display the result
-      document.getElementById('result').textContent = `The IP address for host ID ${hostID} is: ${result}`;
+      document.getElementById('result').textContent = `The IP address for host ID ${hostID} is: ${result}. IP Class: ${ipClass}`;
     }
 
     // JavaScript function for IP address calculation
@@ -95,6 +96,25 @@
         }
         
         return octets.join('.');
+    }
+
+    // Function to determine the IP class
+    function getIPClass(networkAddress) {
+      const firstOctet = parseInt(networkAddress.split('.')[0]);
+
+      if (firstOctet >= 1 && firstOctet <= 126) {
+        return 'A';
+      } else if (firstOctet >= 128 && firstOctet <= 191) {
+        return 'B';
+      } else if (firstOctet >= 192 && firstOctet <= 223) {
+        return 'C';
+      } else if (firstOctet >= 224 && firstOctet <= 239) {
+        return 'D';
+      } else if (firstOctet >= 240 && firstOctet <= 255) {
+        return 'E';
+      } else {
+        return 'Unknown';
+      }
     }
   </script>
 
