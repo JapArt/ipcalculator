@@ -1,14 +1,13 @@
-# IP Calculator
-The purpose of this calculator is to determine the IP address of a host based on the given network address (root IP), subnet mask, and host ID.
+# Calculadora de IP
+El propósito de esta calculadora es determinar la dirección IP de un host basándose en la dirección de red (IP raíz), la máscara de subred y el ID del host.
 
-Just a simple HTML with a small JS script and a little of CSS pixie dust.
+Solo es un simple HTML con un pequeño script de JS y un poco de magia CSS.
 
-## Instructions on How to Use:
+## Instrucciones de Uso:
 
-1. **Input the Root IP Address:** Enter the root IP address in the first field. For example, `177.0.0.0`.
-2. **Input the Subnet Mask:** Enter the subnet mask in the second field. This could be a number between 0 and 32, representing the number of bits used for the network portion of the address. For instance, if the subnet mask is 8, you're using 8 bits for the network and 24 bits for the host.
-3. **Enter the Host ID:** Input the host ID in the last field. This represents the unique identifier of the specific device within that subnet.
-4. **Click on Calculate**
+1. **Ingresa la Dirección IP Raíz:** Escribe la dirección IP raíz en el primer campo. Por ejemplo, `177.0.0.0`.
+2. **Ingresa la Máscara de Subred:** Introduce la máscara de subred en el segundo campo. Puede ser un número entre 0 y 32, que representa la cantidad de bits utilizados para la parte de red de la dirección. Por ejemplo, si la máscara de subred es 8, estás usando 8 bits para la red y 24 bits para los hosts.
+3. **Ingresa el ID del Host:** Escribe el ID del host en el último campo. Esto representa el identificador único del dispositivo específico dentro de esa subred.
+4. **Haz clic en Calcular**
 
-![image](https://github.com/JapArt/ipcalculator/assets/1464121/05ff3d9a-6948-432f-b483-e8e57161221b)
 
