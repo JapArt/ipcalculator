@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>IP Address Calculator</title>
+  <title>Calculadora de Direcciones IP</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <style>
     body {
@@ -11,7 +11,7 @@
     }
   </style>
 </head>
-<!-- Google tag (gtag.js) -->
+<!-- Etiqueta de Google (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-LF1HMKXZPZ"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -23,45 +23,45 @@
 <body>
 
   <div class="container">
-    <h1 class="text-center">IP Address Calculator</h1>
-    <p class="lead text-center">The purpose of this calculator is to determine the IP address of a host based on the given network address (root IP), subnet mask, and host ID.</p>
+    <h1 class="text-center">Calculadora de Direcciones IP para materias de redes</h1>
+    <p class="lead text-center">El propósito de esta calculadora es determinar la dirección IP de un host basado en el numero que el profesor Delfos establece en los trabajos.</p>
     <hr>
     <div class="row">
       <div class="col-4">
         <div class="mb-3">
-          <label for="networkAddress" class="form-label">Network Address:</label>
-          <input class="form-control" type="text" id="networkAddress" placeholder="Enter network address (e.g., 170.1.0.0)">
+          <label for="networkAddress" class="form-label">Dirección de Red:</label>
+          <input class="form-control" type="text" id="networkAddress" placeholder="Ingresa la dirección de red (ej. 170.1.0.0)">
         </div>
       
         <div class="mb-3">
-          <label for="subnetMask" class="form-label">Subnet Mask:</label>
-          <input type="text" id="subnetMask" placeholder="Enter subnet mask (e.g., 16)" class="form-control">
+          <label for="subnetMask" class="form-label">Máscara de Subred:</label>
+          <input type="text" id="subnetMask" placeholder="Ingresa la máscara de subred (ej. 16)" class="form-control">
         </div>
       
         <div class="mb-3">
-          <label for="hostID" class="form-label">Host ID:</label>
-          <input class="form-control" type="text" id="hostID" placeholder="Enter host ID">
+          <label for="hostID" class="form-label">Número de Host:</label>
+          <input class="form-control" type="text" id="hostID" placeholder="Ingresa el numero de host. Ej. 12345">
         </div>
-      <hr>
-        <button onclick="calculateIP()" class="btn btn-primary">Calculate</button>
+        <hr>
+        <button onclick="calculateIP()" class="btn btn-primary">Calcular</button>
         <h3 id="result"></h3>
       </div>
       <div class="col-8">
 
-        <h2>Instructions on How to Use:</h2>
+        <h2>Instrucciones de Uso:</h2>
         <ol>
-          <li>Input the Root IP Address: Enter the root IP address in the first field. For example, <code>177.0.0.0</code>.</li>
-          <li>Input the Subnet Mask: Enter the subnet mask in the second field. This could be a number between 0 and 32, representing the number of bits used for the network portion of the address.</li>
-          <li>Enter the Host ID: Input the host ID in the last field. This represents the unique identifier of the specific device within that subnet.</li>
-          <li>Click on Calculate</li>
+          <li>Ingresa la Dirección IP Raíz: Escribe la dirección IP raíz en el primer campo. Por ejemplo, <code>177.0.0.0</code>.</li>
+          <li>Ingresa la Máscara de Subred: Escribe la máscara de subred en el segundo campo. Puede ser un número entre 0 y 32, representando el número de bits utilizados para la porción de red de la dirección. Por ejemplo, si la máscara de subred es 8, estás usando 8 bits para la red y 24 bits para el host.</li>
+          <li>Ingresa el ID de Host: Escribe el ID de host en el último campo. Esto representa el identificador único del dispositivo específico dentro de esa subred.</li>
+          <li>Haz clic en Calcular</li>
         </ol>
         
         <p class="lead">
-          This kind of tool is particularly helpful for network administrators or anyone working with networking to manage and configure devices within specific subnets.
+          Esta herramienta es especialmente útil para administradores de red o cualquier persona que trabaje con redes para gestionar y configurar dispositivos dentro de subredes específicas.
         </p>
-        <p>Github page <a href="https://github.com/JapArt/ipcalculator">https://github.com/JapArt/ipcalculator</a></p>
-        <!-- Place this tag where you want the button to render. -->
-        <a class="github-button" href="https://github.com/japart" data-size="large" aria-label="Follow @japart on GitHub">Follow @japart</a>
+        <p>Página de Github: <a href="https://github.com/JapArt/ipcalculator">https://github.com/JapArt/ipcalculator</a></p>
+        <!-- Coloca esta etiqueta donde quieras que se muestre el botón. -->
+        <a class="github-button" href="https://github.com/japart" data-size="large" aria-label="Follow @japart on GitHub">Seguir a @japart</a>
       </div>
     </div>
   </div>
@@ -72,15 +72,14 @@
       const subnetMask = document.getElementById('subnetMask').value;
       const hostID = document.getElementById('hostID').value;
 
-      // Perform the IP address calculation here (using the JavaScript function provided earlier)
+      // Realiza el cálculo de la dirección IP aquí
       const result = calculateIPFunction(networkAddress, subnetMask, hostID);
-      const ipClass = getIPClass(networkAddress);
 
-      // Display the result
-      document.getElementById('result').textContent = `The IP address for host ID ${hostID} is: ${result}. IP Class: ${ipClass}`;
+      // Muestra el resultado
+      document.getElementById('result').textContent = `La dirección IP para el ID de host ${hostID} es: ${result}`;
     }
 
-    // JavaScript function for IP address calculation
+    // Función JavaScript para calcular la dirección IP
     function calculateIPFunction(networkAddress, subnetMask, hostID) {
         const subnetArray = networkAddress.split('.').map(Number);
         const subnetBinary = subnetArray.map(num => num.toString(2).padStart(8, '0')).join('');
@@ -90,31 +89,12 @@
         const hostBinary = (hostID >>> 0).toString(2).padStart(hostBits, '0');
         const combinedBinary = subnetBinary.slice(0, subnetSize) + hostBinary;
         
-        const octets = [];
+        const octetos = [];
         for (let i = 0; i < 32; i += 8) {
-          octets.push(parseInt(combinedBinary.slice(i, i + 8), 2));
+          octetos.push(parseInt(combinedBinary.slice(i, i + 8), 2));
         }
         
-        return octets.join('.');
-    }
-
-    // Function to determine the IP class
-    function getIPClass(networkAddress) {
-      const firstOctet = parseInt(networkAddress.split('.')[0]);
-
-      if (firstOctet >= 1 && firstOctet <= 126) {
-        return 'A';
-      } else if (firstOctet >= 128 && firstOctet <= 191) {
-        return 'B';
-      } else if (firstOctet >= 192 && firstOctet <= 223) {
-        return 'C';
-      } else if (firstOctet >= 224 && firstOctet <= 239) {
-        return 'D';
-      } else if (firstOctet >= 240 && firstOctet <= 255) {
-        return 'E';
-      } else {
-        return 'Unknown';
-      }
+        return octetos.join('.');
     }
   </script>
 
